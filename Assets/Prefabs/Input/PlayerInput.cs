@@ -44,6 +44,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Thumbstick"",
+                    ""type"": ""Value"",
+                    ""id"": ""46180ff4-d93f-47e1-8de8-b4067624b0d6"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32149896-256a-4766-9efb-c3e8873448f5"",
+                    ""path"": ""<XRController>{RightHand}/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Thumbstick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -89,6 +109,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""3891b01b-36be-48d0-aae1-9faa81e4f63e"",
                     ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Thumbstick"",
+                    ""type"": ""Value"",
+                    ""id"": ""393af91c-e379-4286-8378-4302e48a53b3"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -116,6 +145,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25971eef-88c3-4d5a-858a-8bba117ea866"",
+                    ""path"": ""<XRController>{LeftHand}/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Thumbstick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -126,10 +166,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_RightXRController = asset.FindActionMap("RightXRController", throwIfNotFound: true);
         m_RightXRController_Position = m_RightXRController.FindAction("Position", throwIfNotFound: true);
         m_RightXRController_Rotation = m_RightXRController.FindAction("Rotation", throwIfNotFound: true);
+        m_RightXRController_Thumbstick = m_RightXRController.FindAction("Thumbstick", throwIfNotFound: true);
         // LeftXRController
         m_LeftXRController = asset.FindActionMap("LeftXRController", throwIfNotFound: true);
         m_LeftXRController_Position = m_LeftXRController.FindAction("Position", throwIfNotFound: true);
         m_LeftXRController_Rotation = m_LeftXRController.FindAction("Rotation", throwIfNotFound: true);
+        m_LeftXRController_Thumbstick = m_LeftXRController.FindAction("Thumbstick", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -199,12 +241,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IRightXRControllerActions> m_RightXRControllerActionsCallbackInterfaces = new List<IRightXRControllerActions>();
     private readonly InputAction m_RightXRController_Position;
     private readonly InputAction m_RightXRController_Rotation;
+    private readonly InputAction m_RightXRController_Thumbstick;
     public struct RightXRControllerActions
     {
         private @PlayerInput m_Wrapper;
         public RightXRControllerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Position => m_Wrapper.m_RightXRController_Position;
         public InputAction @Rotation => m_Wrapper.m_RightXRController_Rotation;
+        public InputAction @Thumbstick => m_Wrapper.m_RightXRController_Thumbstick;
         public InputActionMap Get() { return m_Wrapper.m_RightXRController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -220,6 +264,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Rotation.started += instance.OnRotation;
             @Rotation.performed += instance.OnRotation;
             @Rotation.canceled += instance.OnRotation;
+            @Thumbstick.started += instance.OnThumbstick;
+            @Thumbstick.performed += instance.OnThumbstick;
+            @Thumbstick.canceled += instance.OnThumbstick;
         }
 
         private void UnregisterCallbacks(IRightXRControllerActions instance)
@@ -230,6 +277,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Rotation.started -= instance.OnRotation;
             @Rotation.performed -= instance.OnRotation;
             @Rotation.canceled -= instance.OnRotation;
+            @Thumbstick.started -= instance.OnThumbstick;
+            @Thumbstick.performed -= instance.OnThumbstick;
+            @Thumbstick.canceled -= instance.OnThumbstick;
         }
 
         public void RemoveCallbacks(IRightXRControllerActions instance)
@@ -253,12 +303,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<ILeftXRControllerActions> m_LeftXRControllerActionsCallbackInterfaces = new List<ILeftXRControllerActions>();
     private readonly InputAction m_LeftXRController_Position;
     private readonly InputAction m_LeftXRController_Rotation;
+    private readonly InputAction m_LeftXRController_Thumbstick;
     public struct LeftXRControllerActions
     {
         private @PlayerInput m_Wrapper;
         public LeftXRControllerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Position => m_Wrapper.m_LeftXRController_Position;
         public InputAction @Rotation => m_Wrapper.m_LeftXRController_Rotation;
+        public InputAction @Thumbstick => m_Wrapper.m_LeftXRController_Thumbstick;
         public InputActionMap Get() { return m_Wrapper.m_LeftXRController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -274,6 +326,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Rotation.started += instance.OnRotation;
             @Rotation.performed += instance.OnRotation;
             @Rotation.canceled += instance.OnRotation;
+            @Thumbstick.started += instance.OnThumbstick;
+            @Thumbstick.performed += instance.OnThumbstick;
+            @Thumbstick.canceled += instance.OnThumbstick;
         }
 
         private void UnregisterCallbacks(ILeftXRControllerActions instance)
@@ -284,6 +339,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Rotation.started -= instance.OnRotation;
             @Rotation.performed -= instance.OnRotation;
             @Rotation.canceled -= instance.OnRotation;
+            @Thumbstick.started -= instance.OnThumbstick;
+            @Thumbstick.performed -= instance.OnThumbstick;
+            @Thumbstick.canceled -= instance.OnThumbstick;
         }
 
         public void RemoveCallbacks(ILeftXRControllerActions instance)
@@ -305,10 +363,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnPosition(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
+        void OnThumbstick(InputAction.CallbackContext context);
     }
     public interface ILeftXRControllerActions
     {
         void OnPosition(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
+        void OnThumbstick(InputAction.CallbackContext context);
     }
 }

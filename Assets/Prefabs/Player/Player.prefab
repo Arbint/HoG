@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftXRController
       objectReference: {fileID: 0}
+    - target: {fileID: 1921590452844711527, guid: 7de385f1861e48940a063b946fa541fd, type: 3}
+      propertyPath: handSide
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5082242820203840266, guid: 7de385f1861e48940a063b946fa541fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0603

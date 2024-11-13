@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Thumbstick",
+                    "type": "Value",
+                    "id": "46180ff4-d93f-47e1-8de8-b4067624b0d6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -44,6 +53,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "32149896-256a-4766-9efb-c3e8873448f5",
+                    "path": "<XRController>{RightHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Thumbstick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -70,6 +90,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Thumbstick",
+                    "type": "Value",
+                    "id": "393af91c-e379-4286-8378-4302e48a53b3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -92,6 +121,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "25971eef-88c3-4d5a-858a-8bba117ea866",
+                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Thumbstick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

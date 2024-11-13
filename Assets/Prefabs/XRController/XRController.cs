@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class XRController : MonoBehaviour
 {
     [SerializeField] EXRHandSide handSide;
+    [SerializeField] Transform thumbStick;
 
     PlayerXRInput _xrInput;
 
@@ -31,7 +32,15 @@ public class XRController : MonoBehaviour
         {
             _xrInput.GetXRHandActions(handSide).Position.performed += PoisitonUpdated;
             _xrInput.GetXRHandActions(handSide).Rotation.performed += RotationUpdated;
+            _xrInput.GetXRHandActions(handSide).Thumbstick.performed += ThumbStickUpdated;
+            _xrInput.GetXRHandActions(handSide).Thumbstick.canceled += ThumbStickUpdated;
         }
+    }
+
+    private void ThumbStickUpdated(InputAction.CallbackContext context)
+    {
+        Vector2 input = context.ReadValue<Vector2>();
+        thumbStick.localRotation = Quaternion.Euler(input.y * 15, 0f, input.x * 15);
     }
 
     private void RotationUpdated(InputAction.CallbackContext context)
