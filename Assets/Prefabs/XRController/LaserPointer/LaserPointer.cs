@@ -15,6 +15,19 @@ public class LaserPointer : MonoBehaviour
 
     RaycastHit _hit;
 
+    public bool GetLaserHit(out GameObject hitObject, out Vector3 hitPosition)
+    {
+        if(Hit.collider != null)
+        {
+            hitObject = Hit.collider.gameObject;
+            hitPosition = Hit.point;
+            return true;
+        }
+
+        hitObject = null;
+        hitPosition = Vector3.zero;
+        return false;
+    }
     private void Awake()
     {
         _lineRenderer = GetComponent<LineRenderer>(); 
@@ -30,4 +43,5 @@ public class LaserPointer : MonoBehaviour
         }
         _lineRenderer.SetPositions(new Vector3[] {transform.position, lineEnd});
     }
+
 }

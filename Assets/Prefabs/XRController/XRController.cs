@@ -29,6 +29,7 @@ public class XRController : MonoBehaviour
 
     PlayerXRInput _xrInput;
 
+    IGrabbable _currentGabbable;
     private void Awake()
     {
         _xrInput = new PlayerXRInput();
@@ -103,8 +104,42 @@ public class XRController : MonoBehaviour
 
     private void TriggerButtonUpdated(InputAction.CallbackContext context)
     {
-        GameObject hitObject = laserPointer.Hit.collider.gameObject;
-        Debug.Log($"hit object : {hitObject.name}");
+        float inputVal = context.ReadValue<float>();
+        if (inputVal != 0f)
+        {
+            TriggerPressed();
+        }
+        else
+        {
+            TriggerReleased();
+        }
+    }
+
+    private void TriggerReleased()
+    {
+        if(_currentGabbable as UnityEngine.Object)
+        {
+            _currentGabbable.Released();
+        }
+
+        _currentGabbable = null;
+    }
+
+    private void TriggerPressed()
+    {
+        if(laserPointer.GetLaserHit(out GameObject hitObject, out Vector3 hitPosition))
+        {
+            _currentGabbable = hitObject.GetComponent<IGrabbable>();  
+            if(_currentGabbable == null)
+            {
+                _currentGabbable = hitObject.GetComponentInParent<IGrabbable>();
+            }
+
+            if(_currentGabbable != null)
+            {
+                _currentGabbable.GrabbedBy(gameObject, hitPosition); 
+            }
+        }
     }
 
     private void TriggerUpdated(InputAction.CallbackContext context)
