@@ -47,6 +47,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handSide: 0
   thumbStick: {fileID: 6487803849796332758}
+  triggerTransform: {fileID: 3862842553924188023}
+  triggerRotRange: {x: 0, y: -16}
+  gripTransform: {fileID: 3117830313944866939}
+  gripOffsetRange: {x: -0.01263656, y: -0.0094}
+  primaryButtonTransform: {fileID: 843636140077671742}
+  primaryButtonOffsetRange: {x: 0.001375776, y: 0.0001}
+  secondaryButtonTransform: {fileID: 886732228527983013}
+  secondaryButtonOffsetRange: {x: 0.001375776, y: 0.0001}
 --- !u!1001 &7815457276259031106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,6 +103,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5130399160944146489, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01263656
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130399160944146489, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0282
+      objectReference: {fileID: 0}
     - target: {fileID: 5342377809969199258, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
       propertyPath: m_Name
       value: Universal Controller Materials Variant
@@ -104,9 +120,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
+--- !u!4 &843636140077671742 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7476862024109768060, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
+  m_PrefabInstance: {fileID: 7815457276259031106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &886732228527983013 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6933391405153014247, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
+  m_PrefabInstance: {fileID: 7815457276259031106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3117830313944866939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5130399160944146489, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
+  m_PrefabInstance: {fileID: 7815457276259031106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3251093158519224930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4713053279860613664, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
+  m_PrefabInstance: {fileID: 7815457276259031106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3862842553924188023 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6479982954830409525, guid: 445f7411c27de9943b49bb5c4ca806ce, type: 3}
   m_PrefabInstance: {fileID: 7815457276259031106}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6487803849796332758 stripped

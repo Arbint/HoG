@@ -53,6 +53,60 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Trigger"",
+                    ""type"": ""Value"",
+                    ""id"": ""b68a460b-9028-479d-bfe3-e1adb2363fda"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""TriggerButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""88fc186c-23ed-47d2-a0ca-7ab2a9a3a190"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grip"",
+                    ""type"": ""Value"",
+                    ""id"": ""5f978e1e-0104-425f-b0c9-692ad6af8767"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GripButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""85ab7abf-4030-4435-8782-da30e56ff3b3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrimaryButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""0cfb361d-084f-43db-a8ee-8d1235a315e0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondaryButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""9997da2d-6d43-4874-9a96-c723975b7f35"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +142,72 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Thumbstick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9db93fb2-9401-4feb-8d43-9001a0184ebe"",
+                    ""path"": ""<XRController>{RightHand}/{Trigger}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Trigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a957b2ba-43a7-4e8c-bd74-54bb81bcf290"",
+                    ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TriggerButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c742ce4-2c49-400d-8751-e9021aa629f6"",
+                    ""path"": ""<XRController>{RightHand}/{Grip}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05e88eb1-0da2-43d5-b4f8-fa194147d57e"",
+                    ""path"": ""<XRController>{RightHand}/{GripButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GripButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0f62091-3341-4110-a788-fe6e401cc86c"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c6c92484-bbd1-4407-aa94-f54b136368c6"",
+                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -121,6 +241,60 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Trigger"",
+                    ""type"": ""Value"",
+                    ""id"": ""1d031871-65b7-4d7d-8de1-e71dd00a78d9"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""TriggerButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""18ff2cc6-9809-4568-a72e-6aadc3c2069c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grip"",
+                    ""type"": ""Value"",
+                    ""id"": ""c02caddd-71c1-47af-a0ab-99ff78b52e83"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GripButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""d34af1b4-1a5b-400e-b6e0-d9d0b97a7324"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrimaryButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b4193b4-cab7-45c3-bb6d-bcf1ca456f30"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondaryButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac2a6933-d564-464d-b777-94b18f0ebbac"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -156,6 +330,72 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Thumbstick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbc9923a-96cb-4edc-bf1a-f10800a78e4d"",
+                    ""path"": ""<XRController>{LeftHand}/{Trigger}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Trigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d27d87d-d845-4e0f-8b5e-9e94b1f9734a"",
+                    ""path"": ""<XRController>{LeftHand}/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TriggerButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e380c1f1-b942-40c5-8474-856c22d7a86c"",
+                    ""path"": ""<XRController>{LeftHand}/{Grip}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b83b2909-6715-4f42-a1b3-aacdc8a48516"",
+                    ""path"": ""<XRController>{LeftHand}/{GripButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GripButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe58fe7b-0546-4bc2-a537-5ba0ccd0fa4d"",
+                    ""path"": ""<XRController>{LeftHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27174916-ceac-4b86-9f49-0fa423a35fff"",
+                    ""path"": ""<XRController>{LeftHand}/{SecondaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -167,11 +407,23 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_RightXRController_Position = m_RightXRController.FindAction("Position", throwIfNotFound: true);
         m_RightXRController_Rotation = m_RightXRController.FindAction("Rotation", throwIfNotFound: true);
         m_RightXRController_Thumbstick = m_RightXRController.FindAction("Thumbstick", throwIfNotFound: true);
+        m_RightXRController_Trigger = m_RightXRController.FindAction("Trigger", throwIfNotFound: true);
+        m_RightXRController_TriggerButton = m_RightXRController.FindAction("TriggerButton", throwIfNotFound: true);
+        m_RightXRController_Grip = m_RightXRController.FindAction("Grip", throwIfNotFound: true);
+        m_RightXRController_GripButton = m_RightXRController.FindAction("GripButton", throwIfNotFound: true);
+        m_RightXRController_PrimaryButton = m_RightXRController.FindAction("PrimaryButton", throwIfNotFound: true);
+        m_RightXRController_SecondaryButton = m_RightXRController.FindAction("SecondaryButton", throwIfNotFound: true);
         // LeftXRController
         m_LeftXRController = asset.FindActionMap("LeftXRController", throwIfNotFound: true);
         m_LeftXRController_Position = m_LeftXRController.FindAction("Position", throwIfNotFound: true);
         m_LeftXRController_Rotation = m_LeftXRController.FindAction("Rotation", throwIfNotFound: true);
         m_LeftXRController_Thumbstick = m_LeftXRController.FindAction("Thumbstick", throwIfNotFound: true);
+        m_LeftXRController_Trigger = m_LeftXRController.FindAction("Trigger", throwIfNotFound: true);
+        m_LeftXRController_TriggerButton = m_LeftXRController.FindAction("TriggerButton", throwIfNotFound: true);
+        m_LeftXRController_Grip = m_LeftXRController.FindAction("Grip", throwIfNotFound: true);
+        m_LeftXRController_GripButton = m_LeftXRController.FindAction("GripButton", throwIfNotFound: true);
+        m_LeftXRController_PrimaryButton = m_LeftXRController.FindAction("PrimaryButton", throwIfNotFound: true);
+        m_LeftXRController_SecondaryButton = m_LeftXRController.FindAction("SecondaryButton", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -242,6 +494,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_RightXRController_Position;
     private readonly InputAction m_RightXRController_Rotation;
     private readonly InputAction m_RightXRController_Thumbstick;
+    private readonly InputAction m_RightXRController_Trigger;
+    private readonly InputAction m_RightXRController_TriggerButton;
+    private readonly InputAction m_RightXRController_Grip;
+    private readonly InputAction m_RightXRController_GripButton;
+    private readonly InputAction m_RightXRController_PrimaryButton;
+    private readonly InputAction m_RightXRController_SecondaryButton;
     public struct RightXRControllerActions
     {
         private @PlayerInput m_Wrapper;
@@ -249,6 +507,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Position => m_Wrapper.m_RightXRController_Position;
         public InputAction @Rotation => m_Wrapper.m_RightXRController_Rotation;
         public InputAction @Thumbstick => m_Wrapper.m_RightXRController_Thumbstick;
+        public InputAction @Trigger => m_Wrapper.m_RightXRController_Trigger;
+        public InputAction @TriggerButton => m_Wrapper.m_RightXRController_TriggerButton;
+        public InputAction @Grip => m_Wrapper.m_RightXRController_Grip;
+        public InputAction @GripButton => m_Wrapper.m_RightXRController_GripButton;
+        public InputAction @PrimaryButton => m_Wrapper.m_RightXRController_PrimaryButton;
+        public InputAction @SecondaryButton => m_Wrapper.m_RightXRController_SecondaryButton;
         public InputActionMap Get() { return m_Wrapper.m_RightXRController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -267,6 +531,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Thumbstick.started += instance.OnThumbstick;
             @Thumbstick.performed += instance.OnThumbstick;
             @Thumbstick.canceled += instance.OnThumbstick;
+            @Trigger.started += instance.OnTrigger;
+            @Trigger.performed += instance.OnTrigger;
+            @Trigger.canceled += instance.OnTrigger;
+            @TriggerButton.started += instance.OnTriggerButton;
+            @TriggerButton.performed += instance.OnTriggerButton;
+            @TriggerButton.canceled += instance.OnTriggerButton;
+            @Grip.started += instance.OnGrip;
+            @Grip.performed += instance.OnGrip;
+            @Grip.canceled += instance.OnGrip;
+            @GripButton.started += instance.OnGripButton;
+            @GripButton.performed += instance.OnGripButton;
+            @GripButton.canceled += instance.OnGripButton;
+            @PrimaryButton.started += instance.OnPrimaryButton;
+            @PrimaryButton.performed += instance.OnPrimaryButton;
+            @PrimaryButton.canceled += instance.OnPrimaryButton;
+            @SecondaryButton.started += instance.OnSecondaryButton;
+            @SecondaryButton.performed += instance.OnSecondaryButton;
+            @SecondaryButton.canceled += instance.OnSecondaryButton;
         }
 
         private void UnregisterCallbacks(IRightXRControllerActions instance)
@@ -280,6 +562,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Thumbstick.started -= instance.OnThumbstick;
             @Thumbstick.performed -= instance.OnThumbstick;
             @Thumbstick.canceled -= instance.OnThumbstick;
+            @Trigger.started -= instance.OnTrigger;
+            @Trigger.performed -= instance.OnTrigger;
+            @Trigger.canceled -= instance.OnTrigger;
+            @TriggerButton.started -= instance.OnTriggerButton;
+            @TriggerButton.performed -= instance.OnTriggerButton;
+            @TriggerButton.canceled -= instance.OnTriggerButton;
+            @Grip.started -= instance.OnGrip;
+            @Grip.performed -= instance.OnGrip;
+            @Grip.canceled -= instance.OnGrip;
+            @GripButton.started -= instance.OnGripButton;
+            @GripButton.performed -= instance.OnGripButton;
+            @GripButton.canceled -= instance.OnGripButton;
+            @PrimaryButton.started -= instance.OnPrimaryButton;
+            @PrimaryButton.performed -= instance.OnPrimaryButton;
+            @PrimaryButton.canceled -= instance.OnPrimaryButton;
+            @SecondaryButton.started -= instance.OnSecondaryButton;
+            @SecondaryButton.performed -= instance.OnSecondaryButton;
+            @SecondaryButton.canceled -= instance.OnSecondaryButton;
         }
 
         public void RemoveCallbacks(IRightXRControllerActions instance)
@@ -304,6 +604,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_LeftXRController_Position;
     private readonly InputAction m_LeftXRController_Rotation;
     private readonly InputAction m_LeftXRController_Thumbstick;
+    private readonly InputAction m_LeftXRController_Trigger;
+    private readonly InputAction m_LeftXRController_TriggerButton;
+    private readonly InputAction m_LeftXRController_Grip;
+    private readonly InputAction m_LeftXRController_GripButton;
+    private readonly InputAction m_LeftXRController_PrimaryButton;
+    private readonly InputAction m_LeftXRController_SecondaryButton;
     public struct LeftXRControllerActions
     {
         private @PlayerInput m_Wrapper;
@@ -311,6 +617,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Position => m_Wrapper.m_LeftXRController_Position;
         public InputAction @Rotation => m_Wrapper.m_LeftXRController_Rotation;
         public InputAction @Thumbstick => m_Wrapper.m_LeftXRController_Thumbstick;
+        public InputAction @Trigger => m_Wrapper.m_LeftXRController_Trigger;
+        public InputAction @TriggerButton => m_Wrapper.m_LeftXRController_TriggerButton;
+        public InputAction @Grip => m_Wrapper.m_LeftXRController_Grip;
+        public InputAction @GripButton => m_Wrapper.m_LeftXRController_GripButton;
+        public InputAction @PrimaryButton => m_Wrapper.m_LeftXRController_PrimaryButton;
+        public InputAction @SecondaryButton => m_Wrapper.m_LeftXRController_SecondaryButton;
         public InputActionMap Get() { return m_Wrapper.m_LeftXRController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -329,6 +641,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Thumbstick.started += instance.OnThumbstick;
             @Thumbstick.performed += instance.OnThumbstick;
             @Thumbstick.canceled += instance.OnThumbstick;
+            @Trigger.started += instance.OnTrigger;
+            @Trigger.performed += instance.OnTrigger;
+            @Trigger.canceled += instance.OnTrigger;
+            @TriggerButton.started += instance.OnTriggerButton;
+            @TriggerButton.performed += instance.OnTriggerButton;
+            @TriggerButton.canceled += instance.OnTriggerButton;
+            @Grip.started += instance.OnGrip;
+            @Grip.performed += instance.OnGrip;
+            @Grip.canceled += instance.OnGrip;
+            @GripButton.started += instance.OnGripButton;
+            @GripButton.performed += instance.OnGripButton;
+            @GripButton.canceled += instance.OnGripButton;
+            @PrimaryButton.started += instance.OnPrimaryButton;
+            @PrimaryButton.performed += instance.OnPrimaryButton;
+            @PrimaryButton.canceled += instance.OnPrimaryButton;
+            @SecondaryButton.started += instance.OnSecondaryButton;
+            @SecondaryButton.performed += instance.OnSecondaryButton;
+            @SecondaryButton.canceled += instance.OnSecondaryButton;
         }
 
         private void UnregisterCallbacks(ILeftXRControllerActions instance)
@@ -342,6 +672,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Thumbstick.started -= instance.OnThumbstick;
             @Thumbstick.performed -= instance.OnThumbstick;
             @Thumbstick.canceled -= instance.OnThumbstick;
+            @Trigger.started -= instance.OnTrigger;
+            @Trigger.performed -= instance.OnTrigger;
+            @Trigger.canceled -= instance.OnTrigger;
+            @TriggerButton.started -= instance.OnTriggerButton;
+            @TriggerButton.performed -= instance.OnTriggerButton;
+            @TriggerButton.canceled -= instance.OnTriggerButton;
+            @Grip.started -= instance.OnGrip;
+            @Grip.performed -= instance.OnGrip;
+            @Grip.canceled -= instance.OnGrip;
+            @GripButton.started -= instance.OnGripButton;
+            @GripButton.performed -= instance.OnGripButton;
+            @GripButton.canceled -= instance.OnGripButton;
+            @PrimaryButton.started -= instance.OnPrimaryButton;
+            @PrimaryButton.performed -= instance.OnPrimaryButton;
+            @PrimaryButton.canceled -= instance.OnPrimaryButton;
+            @SecondaryButton.started -= instance.OnSecondaryButton;
+            @SecondaryButton.performed -= instance.OnSecondaryButton;
+            @SecondaryButton.canceled -= instance.OnSecondaryButton;
         }
 
         public void RemoveCallbacks(ILeftXRControllerActions instance)
@@ -364,11 +712,23 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnPosition(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnThumbstick(InputAction.CallbackContext context);
+        void OnTrigger(InputAction.CallbackContext context);
+        void OnTriggerButton(InputAction.CallbackContext context);
+        void OnGrip(InputAction.CallbackContext context);
+        void OnGripButton(InputAction.CallbackContext context);
+        void OnPrimaryButton(InputAction.CallbackContext context);
+        void OnSecondaryButton(InputAction.CallbackContext context);
     }
     public interface ILeftXRControllerActions
     {
         void OnPosition(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnThumbstick(InputAction.CallbackContext context);
+        void OnTrigger(InputAction.CallbackContext context);
+        void OnTriggerButton(InputAction.CallbackContext context);
+        void OnGrip(InputAction.CallbackContext context);
+        void OnGripButton(InputAction.CallbackContext context);
+        void OnPrimaryButton(InputAction.CallbackContext context);
+        void OnSecondaryButton(InputAction.CallbackContext context);
     }
 }
