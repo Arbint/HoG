@@ -40,7 +40,7 @@ public class XRController : MonoBehaviour
     private void ThumbStickUpdated(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
-        thumbStick.localRotation = Quaternion.Euler(input.y * 15, 0f, input.x * 15);
+        thumbStick.rotation = transform.localRotation * Quaternion.Euler(input.y * 15, 0f, -input.x * 15);
     }
 
     private void RotationUpdated(InputAction.CallbackContext context)
