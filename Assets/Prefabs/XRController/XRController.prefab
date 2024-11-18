@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handSide: 0
   thumbStick: {fileID: 6487803849796332758}
+  laserPointer: {fileID: 8098650321426725395}
   triggerTransform: {fileID: 3862842553924188023}
   triggerRotRange: {x: 0, y: -16}
   gripTransform: {fileID: 3117830313944866939}
@@ -122,6 +123,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8562149049725410905, guid: edf20407bfc1c0945a8ad02449e3ea6d, type: 3}
   m_PrefabInstance: {fileID: 3344038508838474534}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8098650321426725395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2446502700776068811, guid: edf20407bfc1c0945a8ad02449e3ea6d, type: 3}
+  m_PrefabInstance: {fileID: 3344038508838474534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3e7c07e97e4ab4a9782e424c6b9416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7815457276259031106
 PrefabInstance:
   m_ObjectHideFlags: 0

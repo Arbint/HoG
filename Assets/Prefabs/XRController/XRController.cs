@@ -7,6 +7,9 @@ public class XRController : MonoBehaviour
     [SerializeField] EXRHandSide handSide;
     [SerializeField] Transform thumbStick;
 
+    [Header("Laser")]
+    [SerializeField] LaserPointer laserPointer; 
+
     [Header("Trigger")]
     [SerializeField] Transform triggerTransform;
     [SerializeField] Vector2 triggerRotRange;
@@ -22,6 +25,7 @@ public class XRController : MonoBehaviour
     [Header("Secondary Button")]
     [SerializeField] Transform secondaryButtonTransform;
     [SerializeField] Vector2 secondaryButtonOffsetRange;
+
 
     PlayerXRInput _xrInput;
 
@@ -99,7 +103,8 @@ public class XRController : MonoBehaviour
 
     private void TriggerButtonUpdated(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        GameObject hitObject = laserPointer.Hit.collider.gameObject;
+        Debug.Log($"hit object : {hitObject.name}");
     }
 
     private void TriggerUpdated(InputAction.CallbackContext context)
