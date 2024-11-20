@@ -10,7 +10,7 @@ public abstract class Threat : MonoBehaviour, ITeamInterface, IGrabbable
     [SerializeField] float deadVFXScale = 1;
     HealthComponent _healthComponent;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _healthComponent = GetComponent<HealthComponent>();
         _healthComponent.OnDead += Blowup;

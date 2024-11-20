@@ -92,7 +92,7 @@ public class XRController : MonoBehaviour
 
     private void GripButtonUpdated(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+
     }
 
     private void GripUpdated(InputAction.CallbackContext context)
