@@ -17,6 +17,41 @@ public class Car : Threat
     {
         base.Awake();
         dragPoint = new GameObject($"{gameObject.name}_drag_point");
+        transform.SetParent(GameplayStatics.GetEarth().transform, false);
+        if(!HasAnyUnblockedLine())
+        {
+            Destroy(gameObject);
+        }
+
+        PickRandomLane();
+    }
+    void PickRandomLane()
+    {
+        if (!HasAnyUnblockedLine())
+            return;
+
+        int randomLaneIndex = Random.Range(0, laneTransforms.Length);
+        Transform randomLane = laneTransforms[randomLaneIndex];
+        while(IsLaneBlocked(randomLane))
+        {
+            randomLaneIndex = Random.Range(0, laneTransforms.Length);
+            randomLane = laneTransforms[randomLaneIndex];
+        }
+
+        _goalLane = randomLane;
+    }
+
+    bool HasAnyUnblockedLine()
+    {
+        foreach (Transform laneTransform in laneTransforms)
+        {
+            if(!IsLaneBlocked(laneTransform))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public override void GrabbedBy(GameObject grabber, Vector3 grabPoint)
@@ -30,40 +65,41 @@ public class Car : Threat
         dragPoint.transform.parent = null;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         Destroy(dragPoint);
+        base.OnDestroy();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(dragPoint.transform.parent != null)
+        if (dragPoint.transform.parent != null)
         {
             float closestDistance = Vector3.Distance(dragPoint.transform.position, laneTransforms[0].position);
             Transform closestLaneTransform = laneTransforms[0];
 
-            for(int i = 1; i < laneTransforms.Length; ++i)
+            for (int i = 1; i < laneTransforms.Length; ++i)
             {
                 Transform laneTransform = laneTransforms[i];
                 float distance = Vector3.Distance(laneTransform.position, dragPoint.transform.position);
                 if (distance < closestDistance)
-                { 
-                     closestDistance = distance;
+                {
+                    closestDistance = distance;
                     closestLaneTransform = laneTransform;
                 }
             }
-            if(!IsLaneBlocked(closestLaneTransform))
+            if (!IsLaneBlocked(closestLaneTransform))
                 _goalLane = closestLaneTransform;
         }
 
-        if(_goalLane)
+        if (_goalLane)
         {
             carPivot.rotation = Quaternion.Slerp(carPivot.rotation, _goalLane.rotation, Time.deltaTime * changeLaneLerpRate);
         }
@@ -75,12 +111,12 @@ public class Car : Threat
 
         Quaternion laneRotationDelta = laneTransform.rotation * Quaternion.Inverse(carPivot.rotation);
         laneRotationDelta.ToAngleAxis(out float angle, out Vector3 axis);
-        int lanesCount = Mathf.RoundToInt(angle/laneRotGap);
+        int lanesCount = Mathf.RoundToInt(angle / laneRotGap);
         for (int i = 0; i < lanesCount + 1; i++)
         {
             Vector3 nextLaneLoc = Quaternion.AngleAxis(i * laneRotGap, axis) * carCollider.transform.position;
             Quaternion nextLaneRot = Quaternion.AngleAxis(i * laneRotGap, axis) * carCollider.transform.rotation;
-            if(IsLocationBlocked(nextLaneLoc, carCollider.size/2f,nextLaneRot, new GameObject[] { carCollider.gameObject}))
+            if (IsLocationBlocked(nextLaneLoc, carCollider.size / 2f, nextLaneRot, new GameObject[] { carCollider.gameObject }))
             {
                 return true;
             }
@@ -92,7 +128,7 @@ public class Car : Threat
     bool IsLocationBlocked(Vector3 position, Vector3 extend, Quaternion rotation, GameObject[] objectsToIgnore)
     {
         Collider[] collidersInLane = Physics.OverlapBox(position, extend, rotation, roadBlockerDetectionLayer);
-        foreach(Collider collider in collidersInLane)
+        foreach (Collider collider in collidersInLane)
         {
             Debug.Log($"Checking against blocker: {collider.gameObject.name}");
             if (!objectsToIgnore.Contains(collider.gameObject))

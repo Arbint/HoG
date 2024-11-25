@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(HealthComponent))]
 public abstract class Threat : MonoBehaviour, ITeamInterface, IGrabbable
 {
+    public Action onDead;
     [SerializeField] int teamId = 1;
     [SerializeField] Transform deathVFXTransform;
     [SerializeField] GameObject deadVFXPrefab;
@@ -21,6 +22,11 @@ public abstract class Threat : MonoBehaviour, ITeamInterface, IGrabbable
         GameObject deadVFX = Instantiate(deadVFXPrefab, deathVFXTransform.position, deathVFXTransform.rotation);
         deadVFX.transform.localScale = Vector3.one * deadVFXScale;
         Destroy(gameObject);
+    }
+
+    protected virtual void OnDestroy()
+    {
+        onDead?.Invoke(); 
     }
 
     public int GetTeamID()
