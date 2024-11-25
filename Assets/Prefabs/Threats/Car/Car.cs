@@ -75,11 +75,11 @@ public class Car : Threat
 
         Quaternion laneRotationDelta = laneTransform.rotation * Quaternion.Inverse(carPivot.rotation);
         laneRotationDelta.ToAngleAxis(out float angle, out Vector3 axis);
-        int lanesCount = (int)(angle/laneRotGap);
-        for (int i = 1; i < lanesCount; i++)
+        int lanesCount = Mathf.RoundToInt(angle/laneRotGap);
+        for (int i = 0; i < lanesCount + 1; i++)
         {
-            Vector3 nextLaneLoc = Quaternion.AngleAxis(i * laneRotGap, axis) * carPivot.position;
-            Quaternion nextLaneRot = Quaternion.AngleAxis(i * laneRotGap, axis) * carPivot.rotation;
+            Vector3 nextLaneLoc = Quaternion.AngleAxis(i * laneRotGap, axis) * carCollider.transform.position;
+            Quaternion nextLaneRot = Quaternion.AngleAxis(i * laneRotGap, axis) * carCollider.transform.rotation;
             if(IsLocationBlocked(nextLaneLoc, carCollider.size/2f,nextLaneRot, new GameObject[] { carCollider.gameObject}))
             {
                 return true;
@@ -102,5 +102,34 @@ public class Car : Threat
         }
 
         return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        //BoxCollider carCollider = GetComponentInChildren<BoxCollider>();
+
+        //foreach(Transform laneTransform in laneTransforms)
+        //{
+        //    Quaternion laneRotationDelta = laneTransform.rotation * Quaternion.Inverse(carPivot.rotation);
+        //    laneRotationDelta.ToAngleAxis(out float angle, out Vector3 axis);
+        //    int lanesCount = Mathf.RoundToInt(angle/laneRotGap);
+        //    Debug.Log($"line count is:{lanesCount}");
+        //    for (int i = 0; i < lanesCount+1; i++)
+        //    {
+        //        Vector3 nextLaneLoc = Quaternion.AngleAxis(i * laneRotGap, axis) * carCollider.transform.position;
+        //        Quaternion nextLaneRot = Quaternion.AngleAxis(i * laneRotGap, axis) * carCollider.transform.rotation;
+
+        //        if(IsLocationBlocked(nextLaneLoc, carCollider.size/2f,nextLaneRot, new GameObject[] { carCollider.gameObject}))
+        //        {
+        //            Gizmos.color = Color.red;
+        //        }
+        //        else
+        //        {
+        //            Gizmos.color = Color.white;
+        //        }
+
+        //        Gizmos.DrawCube(nextLaneLoc, carCollider.size);
+        //    }
+        //}
     }
 }
