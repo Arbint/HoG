@@ -85,20 +85,37 @@ public class XRInputModule : PointerInputModule
 
     private void ProcessPointerUp(IXRPointer pointerInterface, PointerEventData pointerEventData)
     {
-        
+        if (!PopulatePointerEventDataPositionAndRaycast(pointerInterface, pointerEventData))
+            return;
+
+        ExecuteEvents.Execute(pointerEventData.pointerPress, pointerEventData, ExecuteEvents.pointerUpHandler);
+
+        GameObject pointerUpGameObject = ExecuteEvents.GetEventHandler<IPointerUpHandler>(pointerEventData.pointerCurrentRaycast.gameObject);
+        if(pointerUpGameObject == pointerEventData.pointerPress)
+        {
+            if(pointerEventData.eligibleForClick)
+            {
+                ExecuteEvents.Execute(pointerUpGameObject, pointerEventData, ExecuteEvents.pointerClickHandler);
+                pointerEventData.pointerPress = null;
+
+            }
+            pointerEventData.eligibleForClick = false;
+        }
+
+        if(pointerEventData.pointerDrag != null && pointerEventData.dragging)
+        {
+            ExecuteEvents.Execute(pointerEventData.pointerDrag, pointerEventData, ExecuteEvents.dropHandler);
+            pointerEventData.dragging = false;
+        }
     }
 
     private void ProcessPointerDown(IXRPointer pointerInterface, PointerEventData pointerEventData)
     {
-        if (pointerInterface == null || pointerEventData == null)
+        if (!PopulatePointerEventDataPositionAndRaycast(pointerInterface, pointerEventData))
             return;
 
-        Vector2 pointerScreenPos = pointerInterface.GetPointerScreenPosition();
-        pointerEventData.position = pointerScreenPos;
-        pointerEventData.pointerCurrentRaycast = GetRaycastResultFromEventData(pointerEventData);
-
-        GameObject pointerDownGameObject = ExecuteEvents.GetEventHandler<IPointerDownHandler>(pointerEventData.pointerCurrentRaycast.gameObject); 
-        if(pointerDownGameObject)
+        GameObject pointerDownGameObject = ExecuteEvents.GetEventHandler<IPointerDownHandler>(pointerEventData.pointerCurrentRaycast.gameObject);
+        if (pointerDownGameObject)
         {
             pointerEventData.pointerPress = pointerDownGameObject;
             pointerEventData.pointerPressRaycast = pointerEventData.pointerCurrentRaycast;
@@ -106,6 +123,21 @@ public class XRInputModule : PointerInputModule
 
             ExecuteEvents.Execute(pointerDownGameObject, pointerEventData, ExecuteEvents.pointerDownHandler);
         }
+    }
+
+    private bool PopulatePointerEventDataPositionAndRaycast(IXRPointer pointerInterface, PointerEventData pointerEventData)
+    {
+        if (pointerInterface == null || pointerEventData == null)
+            return false;
+
+        Vector2 pointerScreenPos = pointerInterface.GetPointerScreenPosition();
+
+        pointerEventData.delta = pointerScreenPos - pointerEventData.position;
+        pointerEventData.position = pointerScreenPos;
+
+        pointerEventData.pointerCurrentRaycast = GetRaycastResultFromEventData(pointerEventData);
+
+        return true;
     }
 
     private void ProcessPointerMove(IXRPointer pointerInterface, PointerEventData pointerEventData)
