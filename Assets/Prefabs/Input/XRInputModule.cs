@@ -123,6 +123,14 @@ public class XRInputModule : PointerInputModule
 
             ExecuteEvents.Execute(pointerDownGameObject, pointerEventData, ExecuteEvents.pointerDownHandler);
         }
+
+        GameObject pointerDragGameObject = ExecuteEvents.GetEventHandler<IDragHandler>(pointerEventData.pointerCurrentRaycast.gameObject);
+        if(pointerDragGameObject)
+        {
+            ExecuteEvents.Execute(pointerDragGameObject, pointerEventData, ExecuteEvents.beginDragHandler);
+            pointerEventData.pointerDrag = pointerDragGameObject;
+            pointerEventData.dragging = true;
+        }
     }
 
     private bool PopulatePointerEventDataPositionAndRaycast(IXRPointer pointerInterface, PointerEventData pointerEventData)
@@ -142,7 +150,15 @@ public class XRInputModule : PointerInputModule
 
     private void ProcessPointerMove(IXRPointer pointerInterface, PointerEventData pointerEventData)
     {
+        if (!PopulatePointerEventDataPositionAndRaycast(pointerInterface, pointerEventData))
+            return;
 
+        HandlePointerExitAndEnter(pointerEventData, pointerEventData.pointerCurrentRaycast.gameObject);
+        ProcessMove(pointerEventData);
+        if(pointerEventData.dragging)
+        {
+            ProcessDrag(pointerEventData);
+        }
     }
 
     RaycastResult GetRaycastResultFromEventData(PointerEventData pointerEventData)
