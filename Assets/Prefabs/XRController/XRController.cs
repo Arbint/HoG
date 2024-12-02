@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class XRController : MonoBehaviour
+public class XRController : MonoBehaviour, IXRPointer
 {
     [SerializeField] EXRHandSide handSide;
     [SerializeField] Transform thumbStick;
@@ -163,5 +163,15 @@ public class XRController : MonoBehaviour
     private void PoisitonUpdated(InputAction.CallbackContext context)
     {
         transform.localPosition = context.ReadValue<Vector3>();
+    }
+
+    public Vector2 GetPointerScreenPosition()
+    {
+        if(laserPointer.GetLaserHit(out GameObject hitObject, out Vector3 hitPosition))
+        {
+            return Camera.main.WorldToScreenPoint(hitPosition);
+        }
+        
+        return Camera.main.WorldToScreenPoint(laserPointer.transform.position + laserPointer.transform.forward * 10000f);
     }
 }

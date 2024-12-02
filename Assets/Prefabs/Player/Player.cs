@@ -23,5 +23,15 @@ public class Player : MonoBehaviour
     {
         _playerInput.Disable();
     }
+
+    internal IXRPointer GetLeftPointerInteface()
+    {
+        return leftHandController;
+    }
+
+    internal IXRPointer GetRightPointerInteface()
+    {
+        return rightHandController;
+    }
 }
 

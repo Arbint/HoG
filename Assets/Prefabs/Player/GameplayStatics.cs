@@ -1,9 +1,12 @@
+using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public static class GameplayStatics 
 {
     private static GameObject _earth;
-    private static Walkman _walkMan; 
+    private static Walkman _walkMan;
+    private static Player _player;
 
     public static GameObject GetEarth()
     {
@@ -23,5 +26,15 @@ public static class GameplayStatics
         }
 
         return _walkMan;
+    }
+
+    internal static Player GetPlayer()
+    {
+        if(_player == null)
+        {
+            _player = GameObject.FindFirstObjectByType<Player>();
+        }
+
+        return _player;
     }
 }
